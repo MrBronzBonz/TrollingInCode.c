@@ -16,27 +16,27 @@ int main()
 	else if (pid == 0)
    	{
         // Codice per lo script per aprire il video di YouTube
-        system("open https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-        exit(0);
+		int j = 0;
+		sleep(30);
+		while(j++ < 10)
+		{
+			system("open https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+			sleep(30);
+		}
+		exit(0);
     }
    	else
    	{
 	   	// Codice del processo padre (principale)
 		int i = 0;
-		char *str;
-
-		str = malloc(1000);
+		char str[1000];
 
 		do {
 		printf("Scrivi qualcosa: ");
-		scanf("%s", str);
-		printf("ti ripeto: %s", str);
-		free(str);
-		str = malloc(1000);
-		printf("\n");
+		fgets(str, 1000, stdin);
+		printf("ti ripeto: %s\n", str);
 		i++;
-		} while(i <= 15);
-		sleep(30);
-        }
+		} while(i <= 15);    
+	}
 	return(0);
 }

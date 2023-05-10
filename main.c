@@ -23,18 +23,20 @@ int main()
    	{
 	   	// Codice del processo padre (principale)
 		int i = 0;
-		char str[1000];
+		char *str;
 
-		bzero(&str, 1000);
+		str = malloc(1000);
 
 		do {
 		printf("Scrivi qualcosa: ");
 		scanf("%s", str);
 		printf("ti ripeto: %s", str);
+		free(str);
+		str = malloc(1000);
 		printf("\n");
 		i++;
 		} while(i <= 15);
-		sleep(180);
+		sleep(30);
         }
 	return(0);
-    }
+}
